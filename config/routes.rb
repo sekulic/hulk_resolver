@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   root 'static_pages#index'
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  get "fibonacci" => "static_pages#fibonacci" 
   # Example resource route with options:
   #   resources :products do
   #     member do

@@ -5,6 +5,17 @@ class StaticPagesController < ApplicationController
   end      
        
   def index
+  if params.has_key?(:number)
+    @result = 1 if params[:number].to_i == 1 
+    @result = 2 if params[:number].to_i == 2
+    x = params[:number].to_i 
+    @result = fibonacci_recusion(x) - 1
+  else
+    @result = ""
+  end 
+  end
+       
+  def decoder_backup   
   if params.has_key?(:code1) && params.has_key?(:text1) && params.has_key?(:code2)
     @position_of_signs = Hash.new
     @final_signs = Array.new
@@ -23,20 +34,8 @@ class StaticPagesController < ApplicationController
     @result2 = @position_of_signs
   else
     @result = "Result"
-  end    
-
-  end
-       
-  def fibonacci
-  if params.has_key?(:number)
-    @result = 1 if params[:number].to_i == 1 
-    @result = 2 if params[:number].to_i == 2
-    x = params[:number].to_i 
-    @result = fibonacci_recusion(x) - 1
-  else
-    @result = "Result"
-  end    
-
+  end  
   end
            
 end
+  
