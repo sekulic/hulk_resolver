@@ -2,78 +2,60 @@
       <div class="bs-docs-section">
         <div class="row">
           <div class="col-lg-12">
-			<legend>
-			In mathematics, the Fibonacci numbers or Fibonacci sequence are the numbers
-            in the following integer sequence:<br /> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55,
-             89, 144, 233, 377, 610, 987, 1597 ...
-            </legend>
+            <div class="page-header">
+              <h1 id="forms">Lost in Traslation</h1>
+            </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-lg-6">
-            <div class="well bs-component cal-height">
+            <div class="well bs-component">
               <form class="form-horizontal">
                 <fieldset>
-                  
+               	<legend>Copy/Paste Messages.</legend>
 				<%= form_tag root_path, :multipart => true, method: :post, :html => { :class => 'form-horizontal' } do %>
                   <div class="form-group">
-                    <label for="textArea" class="col-lg-1 control-label">The</label>
-                    <div class="col-lg-5">
-      				  <%= text_field_tag :number, nil, class: 'form-control'   %>
+                    <label for="textArea" class="col-lg-3 control-label">ENCODED MESSAGE 1</label>
+                    <div class="col-lg-9">
+                      <span class="help-block">==BEGIN-ENCODED-MESSAGE==</span>	
+      				  <%= text_area_tag :code1, nil, class: 'form-control' , :rows => 4 %>
+                      <span class="help-block">==END-ENCODED-MESSAGE==</span>
                     </div>
-                     <label for="textArea" class="col-lg-6 control-label">term of the Fibonacci sequence is:</label>
                   </div>
-                <div class="col-lg-3 col-lg-offset-9">  
-				<%= submit_tag "COMPUTE", :class => 'btn btn-danger' %>
-				</div>                   
-				<% end %>                                                     
+                  <div class="form-group">
+                    <label for="textArea" class="col-lg-3 control-label">DECODED MESSAGE 1</label>
+                    <div class="col-lg-9">
+      				  <span class="help-block">==BEGIN-DECODED-MESSAGE==</span>
+      				  <%= text_area_tag :text1, nil, class: 'form-control' , :rows => 4  %>
+                      <span class="help-block">==END-DECODED-MESSAGE==</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="textArea" class="col-lg-3 control-label">ENCODED MESSAGE 2</label>
+                    <div class="col-lg-9">
+                      <span class="help-block">==BEGIN-ENCODED-MESSAGE==</span>	
+      				  <%= text_area_tag :code2, nil, class: 'form-control' , :rows => 4  %>
+                      <span class="help-block">==END-ENCODED-MESSAGE==</span>
+                    </div>
+                  </div>  
+				  <div class="form-group">
+				  	<div class="col-lg-4 col-lg-offset-3">
+					<%= submit_tag "RESULT", :class => 'btn btn-danger' %> 
+				  	</div>
+				  </div>                  
+				<% end %>
+                                                 
                 </fieldset>
               </form>
             </div>
           </div>
           <div class="col-lg-6">
-          <div class="well bs-component ov cal-height">	
-			<%= @result %>        
-          </div>
+          	<legend>DECODED MESSAGE 2:</legend>
+			<%= @result %>
+          	<br />
+			<%= @result2 %>          
           </div>			          
 
         </div>
-		<div class="row">
-          <div class="col-lg-12">
-			<legend>
-			The sum of the first n Fibonacci numbers is the [(n + 2)nd Fibonacci number - 1].
-          	</legend>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="well bs-component cal-height">
-              <form class="form-horizontal">
-                <fieldset>
-                  
-				<%= form_tag root_path, :multipart => true, method: :post, :html => { :class => 'form-horizontal' } do %>
-                  <div class="form-group">
-                    <label for="textArea" class="col-lg-4 control-label">The sum of the first</label>
-                    <div class="col-lg-4">
-      				  <%= text_field_tag :number_sum, nil, class: 'form-control'   %>
-                    </div>
-                     <label for="textArea" class="col-lg-4 control-label"> Fibonacci numbers is</label>
-                  </div>
-                <div class="col-lg-3 col-lg-offset-9">  
-				<%= submit_tag "COMPUTE", :class => 'btn btn-danger' %>
-				</div>                   
-				<% end %>                                                     
-                </fieldset>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-6">
-          <div class="well bs-component ov cal-height">	
-			<%= @result %>        
-          </div>
-          </div>			          
-
-        </div>
-        
       </div>
